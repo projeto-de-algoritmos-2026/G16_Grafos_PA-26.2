@@ -96,5 +96,3 @@ No contexto deste projeto:
 * **Pesos:** Representam a distância (ou o tempo) necessário para atravessar a via.
 
 A implementação manual localizada em `src/utils/dijkstra.js` utiliza uma lista de adjacência e calcula progressivamente o custo mínimo acumulado a partir do nó de origem até todos os outros nós alcançáveis, retraçando o caminho ótimo ao final da execução.
-
-```
