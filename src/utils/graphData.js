@@ -1,0 +1,22 @@
+export const graph = {
+  "ICC_Norte": { "ICC_Centro": 200, "FT": 150, "PJC": 250 },
+  "ICC_Centro": { "ICC_Norte": 200, "ICC_Sul": 200, "BCE": 150 },
+  "ICC_Sul": { "ICC_Centro": 200, "RU": 250, "Uleg": 100 },
+  "BCE": { "ICC_Centro": 150, "Reitoria": 100, "PJC": 300, "RU": 400 },
+  "RU": { "ICC_Sul": 250, "FS": 200, "IB": 350, "BCE": 400 },
+  "FT": { "ICC_Norte": 150, "FA": 100, "PAT": 300 },
+  "FA": { "FT": 100, "BSAN": 200 },
+  "Reitoria": { "BCE": 100, "PAT": 250, "FACE": 350 },
+  "PAT": { "FT": 300, "Reitoria": 250, "BSAN": 150 },
+  "PJC": { "ICC_Norte": 250, "BCE": 300, "MAT": 200 },
+  "BSAN": { "FA": 200, "PAT": 150 },
+  "FS": { "RU": 200, "Uleg": 250, "IB": 150 },
+  "IB": { "RU": 350, "FS": 150, "IQ": 100 },
+  "IQ": { "IB": 100, "IF": 100 },
+  "IF": { "IQ": 100, "MAT": 150 },
+  "MAT": { "IF": 150, "PJC": 200 },
+  "FE": { "Uleg": 150, "FD": 200 },
+  "FD": { "FE": 200, "FACE": 150 },
+  "FACE": { "FD": 150, "Reitoria": 350, "Uleg": 400 },
+  "Uleg": { "ICC_Sul": 100, "FS": 250, "FE": 150, "FACE": 400 }
+};
