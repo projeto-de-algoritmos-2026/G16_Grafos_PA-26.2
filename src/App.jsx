@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import './index.css';
-// Importaremos o algoritmo e os dados depois, quando o Daniel terminar:
-// import { dijkstra } from './utils/dijkstra';
-// import { graphData } from './data/graphData';
-
-// Mock temporário para você testar a UI enquanto o grafo real não fica pronto
-const mockNodes = ['Ponto A', 'Ponto B', 'Ponto C', 'Ponto D', 'Ponto E'];
+import { graph } from './utils/graphData';
+import { dijkstra } from './utils/dijkstra';
 
 function App() {
   const [startNode, setStartNode] = useState('');
   const [endNode, setEndNode] = useState('');
   const [result, setResult] = useState(null);
+
+  // Extrai os vértices reais do seu grafo para preencher os selects
+  const realNodes = Object.keys(graph);
 
   const handleCalculateRoute = (e) => {
     e.preventDefault();
@@ -25,14 +24,18 @@ function App() {
       return;
     }
 
-    // Aqui entra a integração com a Parte A no futuro:
-    // const routeResult = dijkstra(graphData, startNode, endNode);
-    // setResult(routeResult);
+    // Executa a busca real pelo menor caminho
+    const routeResult = dijkstra(graph, startNode, endNode);
 
-    // Mock do resultado para você já ir estilizando:
+    if (!routeResult || routeResult.distance === Infinity) {
+      alert("Não foi possível encontrar uma rota entre esses pontos.");
+      return;
+    }
+
+    // Atualiza a interface com o formato esperado pelo layout do seu parceiro
     setResult({
-      path: [startNode, 'Ponto X', 'Ponto Y', endNode],
-      cost: 15.5
+      path: routeResult.path,
+      cost: `${routeResult.distance} metros`
     });
   };
 
@@ -55,8 +58,8 @@ function App() {
                 onChange={(e) => setStartNode(e.target.value)}
               >
                 <option value="">Selecione...</option>
-                {mockNodes.map(node => (
-                  <option key={node} value={node}>{node}</option>
+                {realNodes.map(node => (
+                  <option key={node} value={node}>{node.replace('_', ' ')}</option>
                 ))}
               </select>
             </div>
@@ -69,8 +72,8 @@ function App() {
                 onChange={(e) => setEndNode(e.target.value)}
               >
                 <option value="">Selecione...</option>
-                {mockNodes.map(node => (
-                  <option key={node} value={node}>{node}</option>
+                {realNodes.map(node => (
+                  <option key={node} value={node}>{node.replace('_', ' ')}</option>
                 ))}
               </select>
             </div>
@@ -83,13 +86,13 @@ function App() {
           <section className="card result-section">
             <h2>Resultado da Rota</h2>
             <div className="result-info">
-              <p><strong>Custo Total (Distância/Tempo):</strong> <span className="highlight">{result.cost}</span></p>
+              <p><strong>Custo Total (Distância):</strong> <span className="highlight">{result.cost}</span></p>
               
               <h3>Caminho Passo a Passo:</h3>
               <div className="path-display">
                 {result.path.map((step, index) => (
                   <span key={index} className="path-step">
-                    {step}
+                    {step.replace('_', ' ')}
                     {index < result.path.length - 1 && <span className="arrow"> ➔ </span>}
                   </span>
                 ))}
