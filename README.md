@@ -19,7 +19,7 @@ Aplicação web interativa desenvolvida em **React + Vite** que calcula a rota m
 
 ## 🎥 Apresentação em Vídeo
 
-> 🔗 **Link do Vídeo:** [Adicionar link do YouTube/Drive aqui]
+> 🔗 **Link do Vídeo:** https://youtu.be/fa3HmCl04zs
 
 O vídeo de até 5 minutos aborda a modelagem do grafo da UnB, os detalhes técnicos da fila de prioridade com Min-Heap no Dijkstra e a demonstração completa da aplicação em execução.
 
