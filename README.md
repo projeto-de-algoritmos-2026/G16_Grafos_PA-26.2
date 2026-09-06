@@ -27,7 +27,14 @@ O vídeo de até 5 minutos aborda a modelagem do grafo da UnB, os detalhes técn
 
 ## 📸 Screenshots da Aplicação
 
-*(Insira aqui as capturas de tela da interface calculando rotas no campus)*
+**Tela Inicial:**
+![Visão geral da aplicação](./images/foto1.png)
+
+**Seleção de Origem e Destino:**
+![Selecionando os prédios no campus](./images/foto2.png)
+
+**Resultado do Dijkstra:**
+![Rota traçada e custo final](./images/foto3.png)
 
 ---
 
